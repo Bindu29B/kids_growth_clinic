@@ -1,0 +1,422 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Login Container */
+.login-container {
+    background: white;
+    padding: 30px;
+    width: 400px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: calc(100% - 10px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: auto;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Dashboard Container */
+.dashboard-container {
+    width: 90%;
+    max-width: 1200px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.right-section {
+    display: flex;
+    gap: 10px;
+}
+
+#logout {
+    background-color: red;
+    color: white;
+}
+
+#logout:hover {
+    background-color: #c82333;
+    ;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    background-color: #f4faff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    table-layout: auto;
+    white-space: nowrap;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #007bff;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+}
+
+tr:nth-child(even) {
+    background-color: #E3F2FD;
+}
+
+tr:hover {
+    background-color: #e9ecef;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#apply-filter {
+    background-color: #17a2b8;
+}
+
+#apply-filter:hover {
+    background-color: #117a8b;
+}
+
+.search-filter-container {
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    /* Allows wrapping for responsiveness */
+}
+
+#search {
+    width: 27ch;
+    min-width: 150px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.import-export {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+#import-data,
+#export-data {
+    background-color: green;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.action-buttons button {
+    background-color: #007BFF;
+    color: white;
+    padding: 4px 0;
+    font-size: 14px;
+    width: 80px; /* All buttons same width */
+    height: 36px; /* All buttons same height */
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-buttons button:hover {
+    background-color: #004c9e ;
+}
+
+.action-buttons .edit-btn {
+    background-color: lightgray;
+    color: black;
+}
+
+.action-buttons .edit-btn:hover {
+    background-color: grey;
+}
+
+/* Style the modal */
+#editModal {
+    width: 400px;
+    padding: 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Style buttons */
+#editModal button {
+    width: 45%;
+    padding: 8px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Save button styling */
+#editModal button:first-of-type {
+    background: #28a745;
+    color: white;
+}
+
+/* Close button styling */
+#editModal button:last-of-type {
+    background: #dc3545;
+    color: white;
+}
+
+/* Add a smooth fade-in animation */
+#editModal[open] {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Style for the modal */
+#myModal {
+    width: 400px;
+    padding: 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Style for buttons */
+#myModal button {
+    width: 45%;
+    padding: 8px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Save button styling */
+#myModal button:first-of-type {
+    background: #28a745;
+    color: white;
+}
+
+/* Close button styling */
+#myModal button:last-of-type {
+    background: #dc3545;
+    color: white;
+}
+
+/* Add a smooth fade-in animation */
+#myModal[open] {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Fieldset styling */
+fieldset {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Input fields styling */
+#myModal input:not([type="checkbox"]),
+#myModal textarea,
+#myModal select,
+#editModal input:not([type="checkbox"]),
+#editModal textarea,
+#editModal select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Label styling */
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Textarea styling */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Layout adjustments */
+input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    vertical-align: middle;
+}
+
+input[type="checkbox"]+label {
+    display: inline;
+    margin: 0;
+    vertical-align: middle;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+}
+
+/* Add a red asterisk for required fields */
+.required::after {
+    content: " *";
+    color: red;
+    font-weight: bold;
+}
+
+.pagination-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination-btn {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    margin: 2px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination-btn.active {
+    background-color: #0077cc;
+    color: white;
+    font-weight: bold;
+}

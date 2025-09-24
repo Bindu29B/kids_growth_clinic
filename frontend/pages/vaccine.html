@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine Records</title>
+    <link rel="stylesheet" href="../css/style-action-btn.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Vaccine Records for <span id="babyName"></span></h2>
+        <button onclick="openVaccineModal()">+ Add Vaccine</button>
+
+        <dialog id="vaccineModal">
+            <h3>Add Vaccine Record</h3>
+
+            <label for="vaccination">Name of Vaccine:</label>
+            <input type="text" id="vaccination" name="vaccination"><br>
+            <label for="dateOfVaccine">Date of Vaccination:</label>
+            <input type="date" id="dateOfVaccine" name="dateOfVaccine"><br>
+            <label for="nextVaccine">Next Vaccination:</label>
+            <input type="date" id="nextVaccine" name="nextVaccine"><br>
+            <label for="nextVaccinename">Name of Next Vaccine:</label>
+            <input type="text" id="nextVaccinename" name="nextVaccinename"><br>
+            <button onclick="addVaccine()">Save</button>
+            <button onclick="document.getElementById('vaccineModal').close()">Cancel</button>
+        </dialog>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Vaccine Name</th>
+                    <th>Vaccination Date</th>
+                    <th>Next Vaccine Date</th>
+                    <th>Name of Next Vaccine</th>
+                </tr>
+            </thead>
+            <tbody id="vaccine-records">
+                <!-- rows populate via JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../js/vaccine.js"></script>
+</body>
+
+</html>

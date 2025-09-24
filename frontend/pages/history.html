@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Medical History Records</title>
+  <link rel="stylesheet" href="../css/style-action-btn.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Prescription History for <span id="babyName"></span></h2>
+
+    <button onclick="document.getElementById('historyModal').showModal()">+ Upload Prescription</button>
+
+    <dialog id="historyModal">
+      <h3>Upload Prescription</h3>
+      <input type="file" id="prescriptionImage" accept="image/*" required><br><br>
+      <button onclick="uploadPrescription()">Save</button>
+      <button onclick="document.getElementById('historyModal').close()">Cancel</button>
+    </dialog>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Prescription Image</th>
+        </tr>
+      </thead>
+      <tbody id="history-records">
+        <!-- Entries populated by JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Image Preview Modal -->
+  <div id="imagePreviewModal" class="image-modal">
+    <span class="close-preview" onclick="closeImageModal()">&times;</span>
+    <img class="modal-content" id="previewImg">
+  </div>
+
+  <script src="../js/history.js"></script>
+</body>
+
+</html>

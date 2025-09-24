@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h2 class="dashboard-title">Kids Growth Clinic Admin Dashboard</h2>
+            <div class="right-section">
+                <button id="add-user" onclick="document.getElementById('myModal').showModal()">Add New User</button>
+                <button id="logout" onclick="logOut()">Logout</button>
+            </div>
+        </div>
+
+        <dialog id="myModal">
+            <h2>Clinic Registration Form</h2>
+            <input type="number" id="sl-no" placeholder="SL NO" readonly style="display: none;">
+
+            <!-- Baby's Information -->
+            <fieldset>
+                <legend>Child's Information</legend>
+                <label for="babyName" class="required">Child's Name:</label>
+                <input type="text" id="babyName" name="babyName" required><br>
+
+                <label for="dob" class="required">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required><br>
+
+                <label for="gender" class="required">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" style="color: grey;">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select><br>
+
+                <label for="bloodType">Blood Type:</label>
+                <input type="text" id="bloodType" name="bloodType"><br>
+
+                <label for="medicalHistory">Medical History:</label>
+                <textarea id="medicalHistory" name="medicalHistory" rows="4"></textarea><br>
+
+                <label for="doctorName">Referring Doctor: </label>
+                <input type="text" id="doctorName" name="doctorName"><br>
+
+                <label for="specialConditions">Special Conditions:</label>
+                <textarea id="specialConditions" name="specialConditions" rows="4"></textarea><br>
+
+                <label for="nextVisit">Next Appointment Date:</label>
+                <input type="date" id="nextVisit" name="nextVisit"><br>
+            </fieldset>
+
+            <!-- Parent's Information -->
+            <fieldset>
+                <legend>Parent's Information</legend>
+                <label for="parentName" class="required">Parent's Name:</label>
+                <input type="text" id="parentName" name="parentName" required><br>
+
+                <label for="phone" class="required" maxlength="10">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required><br>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email"><br>
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4"></textarea><br>
+
+                <label for="emergencyContactName">Alternate Contact Name</label>
+                <input type="text" id="emergencyContactName" name="emergencyContact"><br>
+
+                <label for="emergencyContactNumber" maxlength="10">Alternate Contact Number</label>
+                <input type="number" id="emergencyContactNumber" name="emergencyContact"><br>
+            </fieldset>
+
+            <!-- Additional Information -->
+            <fieldset>
+                <legend>Additional Information</legend>
+                <label for="emergencyInstructions">Emergency Medical Instructions:</label>
+                <textarea id="emergencyInstructions" name="emergencyInstructions" rows="4"></textarea><br>
+            </fieldset>
+
+            <button onclick="addUser()">Save</button>
+            <button onclick="closeModel()">Close</button>
+
+        </dialog>
+
+        <dialog id="editModal">
+            <h2>Edit Patient's Info</h2>
+            <input type="number" id="edit-sl-no" placeholder="SL NO" readonly style="display: none;">
+
+            <fieldset>
+                <legend>Baby's Information</legend>
+                <label for="babyName" class="required">Baby's Name:</label>
+                <input type="text" id="edit-babyName" name="babyName" required><br>
+
+                <label for="dob" class="required">Date of Birth:</label>
+                <input type="date" id="edit-dob" name="dob" required><br>
+
+                <label for="gender" class="required">Gender:</label>
+                <select id="edit-gender" name="gender" required>
+                    <option value="" style="color: grey;">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select><br>
+
+                <label for="bloodType">Blood Type:</label>
+                <input type="text" id="edit-bloodType" name="bloodType"><br>
+
+                <label for="medicalHistory">Medical History:</label>
+                <textarea id="edit-medicalHistory" name="medicalHistory" rows="4"></textarea><br>
+
+                <label for="doctorName">Referring Doctor:</label>
+                <input type="text" id="edit-doctorName" name="doctorName"><br>
+
+                <label for="specialConditions">Special Conditions:</label>
+                <textarea id="edit-specialConditions" name="specialConditions" rows="4"></textarea><br>
+
+                <label for="nextVisit">Next Appointment Date:</label>
+                <input type="date" id="edit-nextVisit" name="nextVisit"><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>Parent's Information</legend>
+                <label for="parentName" class="required">Parent's Name:</label>
+                <input type="text" id="edit-parentName" name="parentName" required><br>
+
+                <label for="phone" class="required" maxlength="10">Phone Number:</label>
+                <input type="tel" id="edit-phone" name="phone" required><br>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="edit-email" name="email"><br>
+
+                <label for="address">Address:</label>
+                <textarea id="edit-address" name="address" rows="4"></textarea><br>
+
+                <label for="emergencyContactName">Alternate Contact Name</label>
+                <input type="text" id="edit-emergencyContactName" name="emergencyContact"><br>
+
+                <label for="emergencyContactNumber" maxlength="10">Alternate Contact Number</label>
+                <input type="number" id="edit-emergencyContactNumber" name="emergencyContact"><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>Additional Information</legend>
+                <label for="emergencyInstructions">Emergency Medical Instructions:</label>
+                <textarea id="edit-emergencyInstructions" name="emergencyInstructions" rows="4"></textarea><br>
+            </fieldset>
+
+            <button onclick="saveUser()">Save</button>
+            <button onclick="closeEditModal()">Close</button>
+
+        </dialog>
+
+        <!-- Search & Filter Section -->
+        <div class="search-filter-container">
+            <input type="text" id="search" placeholder="Search users and click enter..." onchange="fetchUsers()" />
+
+            <!-- Next Visit Filter -->
+            <div class="filters">
+                <input type="date" id="visit-start" placeholder="Start Date">
+                <input type="date" id="visit-end" placeholder="End Date">
+                <button id="apply-visit-filter" onclick="fetchUsers()">Apply Filter for Next Visit</button>
+                <button id="clear" onclick="clearFilters()">Clear</button>
+            </div>
+        </div>
+
+        <!-- User Data Table -->
+        <div class="table-container">
+            <table id="crm-data-table">
+                <thead>
+                    <tr>
+                        <th>SL No</th>
+                        <th>Child's Name</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th>Blood Type</th>
+                        <th>Medical History</th>
+                        <th>Referring Doctor</th>
+                        <th>Special Conditions</th>
+                        <th>Next Appointment<br> Date</th>
+                        <th>Parent's Name</th>
+                        <th>Phone No</th>
+                        <th>Email Address</th>
+                        <th>Address</th>
+                        <th>Alternate Contact Name</th>
+                        <th>Alternate Contact <br>Number</th>
+                        <th>Additional Information</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="user-table-body">
+                    <!-- Data will be inserted here dynamically from MySQL -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="pagination" class="pagination-container"></div>
+
+        <!-- Import & Export Section -->
+        <div class="import-export">
+            <input type="file" id="file-input" accept=".xlsx, .xls">
+            <button id="import-data" onclick="importExcel()">Import from Excel</button>
+            <button id="export-data" onclick="exportExcel()">Export to Excel</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+
+    </script>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+
+</html>
